@@ -1,0 +1,65 @@
+[
+  {
+    "id": "techcedence-2025",
+    "company": "Techcedence Pvt. Ltd.",
+    "companyUrl": "https://techcedence.com",
+    "role": "Senior Software Engineer",
+    "location": "Coimbatore, Tamil Nadu",
+    "startDate": "March 2025",
+    "endDate": "Present",
+    "current": true,
+    "description": "Leading enterprise feature development for Jimani, a multi-tenant SaaS platform serving Restaurants, Salons, Webshops, and Activity-based businesses.",
+    "responsibilities": [
+      "Architected and developed enterprise-grade features for the Jimani multi-tenant SaaS platform",
+      "Designed an interactive drag-and-drop Floor Plan Builder enabling custom layouts with tables, chairs, and seating arrangements",
+      "Implemented a dynamic reservation workflow with automated table status transitions across the reservation lifecycle",
+      "Developed POS billing, order processing, and payment workflows integrated with reservation and webshop modules",
+      "Built kitchen order management workflows for seamless POS-to-kitchen communication",
+      "Developed scalable modules using CQRS pattern ensuring clean separation of commands and queries",
+      "Implemented multilingual support via customer-uploaded localization resource files with dynamic language switching",
+      "Built responsive UIs optimized for desktop, tablet, and touch-enabled POS devices"
+    ],
+    "achievements": [
+      "Reduced reservation management errors by 60% through automated table status lifecycle",
+      "Delivered multi-language platform supporting dynamic customer-uploaded translations",
+      "Built POS system integrated across reservation, kitchen, and webshop modules"
+    ],
+    "technologies": [
+      "ASP.NET Core", "C#", "CQRS", "Entity Framework Core", "SQL Server",
+      "Bootstrap", "JavaScript", "jQuery", "AJAX", "REST APIs",
+      "HTML5", "CSS3", "Razor Views", "Dependency Injection"
+    ],
+    "accentColor": "#6366f1"
+  },
+  {
+    "id": "rnd-softech-2022",
+    "company": "RND Softech Private Limited",
+    "companyUrl": "https://rndsoftech.com",
+    "role": "Software Developer L2",
+    "location": "Coimbatore, Tamil Nadu",
+    "startDate": "July 2022",
+    "endDate": "March 2025",
+    "current": false,
+    "description": "Developed and maintained enterprise HRMS, finance management, and internal productivity applications for business clients across multiple domains.",
+    "responsibilities": [
+      "Developed attendance management, payroll processing, employee self-service, appraisal, and incident management modules for HRMS",
+      "Built finance management features including invoice generation, cheque management, bank detail management, and automated email attachments",
+      "Implemented MEPZ compliance forms and government submission workflows",
+      "Improved application performance by optimizing SQL queries, backend logic, and user workflows",
+      "Designed and maintained SQL Server and MySQL databases with optimized stored procedures",
+      "Worked on debugging, feature enhancements, and production issue resolution for enterprise applications",
+      "Developed MyVoice web application with payroll automation and user management features"
+    ],
+    "achievements": [
+      "Reduced payroll processing time by 40% through automation modules",
+      "Implemented MEPZ compliance workflows eliminating manual form submissions",
+      "Optimized critical SQL queries reducing report load times by over 50%"
+    ],
+    "technologies": [
+      "ASP.NET Core", "ASP.NET MVC", "ASP.NET Web Forms", "C#",
+      "SQL Server", "MySQL", "Entity Framework", "jQuery",
+      "Bootstrap", "HTML5", "CSS3", "PHP", "JavaScript", "AJAX"
+    ],
+    "accentColor": "#8b5cf6"
+  }
+]
