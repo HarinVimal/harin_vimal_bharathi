@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Mail, Download, ArrowDown, Sparkles, MapPin, Briefcase } from "lucide-react";
+import { Mail, Download, ArrowDown, MapPin, Briefcase } from "lucide-react";
 import Image from "next/image";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
 import { TypingText } from "@/components/animations/TypingText";
@@ -305,7 +305,7 @@ export function HeroSection() {
               className="flex flex-wrap gap-3"
             >
               <GlowButton
-                href="/resume/resume.pdf"
+                href="/resume/Harin_Vimal_Bharathi_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"

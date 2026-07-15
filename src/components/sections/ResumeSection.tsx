@@ -24,7 +24,7 @@ export function ResumeSection() {
           <FadeIn variant="up">
             <div className="flex flex-wrap justify-center gap-4">
               <GlowButton
-                href="/resume/resume.pdf"
+                href="/resume/Harin_Vimal_Bharathi_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"
@@ -64,7 +64,7 @@ export function ResumeSection() {
                   </div>
                 </div>
                 <GlowButton
-                  href="/resume/resume.pdf"
+                  href="/resume/Harin_Vimal_Bharathi_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="ghost"
@@ -118,7 +118,7 @@ export function ResumeSection() {
               {/* Overlay CTA */}
               <div className="absolute inset-0 flex items-end justify-center pb-8 bg-gradient-to-t from-zinc-950/80 via-transparent">
                 <GlowButton
-                  href="/resume/resume.pdf"
+                  href="/resume/Harin_Vimal_Bharathi_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="primary"

@@ -431,7 +431,7 @@ Open **`src/data/certificates.json`**:
 
 ### How to Update the Resume
 
-1. Replace the file at **`public/resume/resume.pdf`** with your updated PDF.
+1. Replace the file at **`public/resume/Harin_Vimal_Bharathi_Resume.pdf`** with your updated PDF.
 2. The Download Resume button and Resume section preview will automatically use the new file.
 
 No code changes required.
