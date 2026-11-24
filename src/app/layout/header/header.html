@@ -16,7 +16,7 @@
     <app-navigation class="desktop-navigation" />
 
     <div class="header-actions">
-      <button
+      <!-- <button
         class="theme-toggle"
         type="button"
         [attr.aria-label]="themeService.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
@@ -60,7 +60,7 @@
             />
           </svg>
         </span>
-      </button>
+      </button> -->
 
       <ng-container [ngTemplateOutlet]="primaryActions" />
 
@@ -137,29 +137,5 @@
       </svg>
       <span>Download CV</span>
     </a>
-
-    <button
-      class="cta-button"
-      type="button"
-      [style.--magnetic-x]="magneticOffset().x + 'px'"
-      [style.--magnetic-y]="magneticOffset().y + 'px'"
-      (click)="onTalkClick()"
-      (pointermove)="onCtaPointerMove($event)"
-      (pointerleave)="onCtaPointerLeave()"
-    >
-      <span>Let's Talk</span>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M7 17 17 7M8 7h9v9" />
-      </svg>
-    </button>
   </ng-template>
 </header>
