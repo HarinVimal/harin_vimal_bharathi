@@ -42,19 +42,10 @@ html::-webkit-scrollbar-corner {
 
 body {
   background-color: var(--primary-background);
-  background-image: url('/images/background/body_background.png');
-  background-position: center top;
-  background-repeat: repeat-y;
-  background-size: 100% auto;
   color: var(--dark-text);
   transition:
     background-color 350ms ease,
     color 350ms ease;
-}
-
-/* Keep the warm texture in dark mode while preserving contrast for light text. */
-[data-theme='dark'] body {
-  background-blend-mode: multiply;
 }
 
 section[id] {

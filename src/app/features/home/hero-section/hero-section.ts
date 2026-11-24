@@ -37,7 +37,7 @@ const HERO_CONTENT: HeroContent = {
   eyebrow: "HELLO, I'M HARIN",
   rolePhrases: ['Frontend Developer', 'Backend Developer', 'Flutter Developer'],
   description:
-    "I'm Harin Vimal Bharathi J, a Full Stack Developer passionate about building scalable, reliable, and user-friendly applications. I specialize in transforming complex business requirements into elegant digital solutions.",
+    "Senior Full Stack Developer with 4.5+ years of experience building enterprise-grade applications. I specialize in C#/.NET backends, SQL Server databases, and modern frontends — delivering scalable SaaS platforms, warehouse security systems, and business solutions that perform.",
   primaryCtaLabel: 'Explore My Work',
   secondaryCtaLabel: 'Download CV',
   stats: [

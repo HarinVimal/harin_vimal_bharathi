@@ -1,3 +1,16 @@
 :host {
   display: block;
 }
+
+.home__body {
+  background-color: var(--primary-background);
+  background-image: url('/images/background/body_background.png');
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+}
+
+/* Keep the warm texture in dark mode while preserving contrast for light text. */
+:host-context([data-theme='dark']) .home__body {
+  background-blend-mode: multiply;
+}

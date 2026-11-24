@@ -85,31 +85,6 @@
     @if (certification().description) {
       <p class="certification-card__description">{{ certification().description }}</p>
     }
-
-    <div class="certification-card__actions">
-      <button
-        type="button"
-        class="certification-card__view"
-        [attr.aria-label]="'Open preview for ' + certification().title"
-        (click)="view.emit(certification())"
-      >
-        View Certificate
-        <lucide-icon [img]="arrowIcon" [size]="13" [strokeWidth]="2" aria-hidden="true" />
-      </button>
-
-      @if (certification().verificationUrl; as verificationUrl) {
-        <a
-          class="certification-card__verify"
-          [href]="verificationUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          [attr.aria-label]="'Verify ' + certification().title + ' (opens in a new tab)'"
-        >
-          Verify Credential
-          <lucide-icon [img]="externalIcon" [size]="12" [strokeWidth]="2" aria-hidden="true" />
-        </a>
-      }
-    </div>
   </div>
 
   <span class="certification-card__edge" aria-hidden="true"></span>
