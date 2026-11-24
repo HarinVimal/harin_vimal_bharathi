@@ -1,0 +1,69 @@
+:root {
+  --primary-background: #f8f2ea;
+  --secondary-background: #e9d1bb;
+  --copper-accent: #c36a3d;
+  --espresso-brown: #663b2d;
+  --dark-text: #1b100c;
+  --white: #ffffff;
+  --scrollbar-track: rgba(233, 209, 187, 0.38);
+  --scrollbar-thumb: rgba(195, 106, 61, 0.72);
+  --scrollbar-thumb-hover: #663b2d;
+
+  --font-ui:
+    'DM Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+
+  --navbar-height: 5.375rem;
+  --nav-text: #241713;
+  --nav-hover: #c36a3d;
+  --nav-pill: rgba(233, 209, 187, 0.42);
+  --nav-pill-active: rgba(195, 106, 61, 0.14);
+  --nav-active-ring: rgba(195, 106, 61, 0.35);
+  --nav-active-glow: rgba(195, 106, 61, 0.4);
+  --nav-divider: rgba(102, 59, 45, 0.18);
+  --nav-scroll-tint: rgba(248, 242, 234, 0.3);
+  --nav-cv-background: #f8f2ea;
+  --nav-cv-border: #c36a3d;
+  --nav-cv-text: #663b2d;
+  --nav-cv-glow: rgba(195, 106, 61, 0.28);
+  --nav-cta-background: #663b2d;
+  --nav-cta-text: #f8f2ea;
+  --nav-cta-shadow: rgba(102, 59, 45, 0.32);
+  --nav-toggle-background: #663b2d;
+  --nav-toggle-text: #f8f2ea;
+  --nav-menu-background: rgba(248, 242, 234, 0.94);
+  --nav-menu-border: rgba(102, 59, 45, 0.14);
+}
+
+[data-theme='dark'] {
+  --primary-background: #241713;
+  --secondary-background: #3a211a;
+  --dark-text: #f8f2ea;
+  --scrollbar-track: rgba(36, 23, 19, 0.82);
+  --scrollbar-thumb: rgba(195, 106, 61, 0.78);
+  --scrollbar-thumb-hover: #e9d1bb;
+
+  --nav-text: #f8f2ea;
+  --nav-pill: rgba(248, 242, 234, 0.08);
+  --nav-pill-active: rgba(195, 106, 61, 0.24);
+  --nav-active-ring: rgba(233, 209, 187, 0.32);
+  --nav-active-glow: rgba(195, 106, 61, 0.55);
+  --nav-divider: rgba(248, 242, 234, 0.18);
+  --nav-scroll-tint: rgba(36, 23, 19, 0.34);
+  --nav-cv-background: transparent;
+  --nav-cv-border: #e9d1bb;
+  --nav-cv-text: #f8f2ea;
+  --nav-cta-background: #c36a3d;
+  --nav-cta-shadow: rgba(195, 106, 61, 0.34);
+  --nav-toggle-background: #e9d1bb;
+  --nav-toggle-text: #241713;
+  --nav-menu-background: rgba(36, 23, 19, 0.94);
+  --nav-menu-border: rgba(233, 209, 187, 0.16);
+}
+
+$primary-background: #f8f2ea;
+$secondary-background: #e9d1bb;
+$copper-accent: #c36a3d;
+$espresso-brown: #663b2d;
+$dark-text: #1b100c;
+$white: #ffffff;

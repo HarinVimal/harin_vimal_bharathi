@@ -1,0 +1,13 @@
+<div class="experience-timeline">
+  <span class="experience-timeline__rail" aria-hidden="true">
+    <span class="experience-timeline__rail-fill"></span>
+  </span>
+
+  <ol class="experience-timeline__list">
+    @for (entry of entries(); track entry.id) {
+      <li class="experience-timeline__item">
+        <app-experience-timeline-item [entry]="entry" />
+      </li>
+    }
+  </ol>
+</div>

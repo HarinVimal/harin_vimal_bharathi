@@ -1,0 +1,73 @@
+<section
+  #experienceRoot
+  id="experience"
+  class="experience relative isolate overflow-hidden py-20 sm:py-24 lg:py-28"
+  aria-labelledby="experience-title"
+>
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <span class="experience__ambient experience__ambient--copper"></span>
+    <span class="experience__ambient experience__ambient--sand"></span>
+    <span class="experience__streak experience__streak--one"></span>
+    <span class="experience__streak experience__streak--two"></span>
+
+    <svg class="experience__organic" viewBox="0 0 520 460" fill="none" preserveAspectRatio="none">
+      <path
+        d="M520 24C452 6 402 34 372 88 336 152 356 214 404 264 452 314 478 372 520 440Z"
+        fill="#E9D1BB"
+        fill-opacity="0.2"
+      />
+      <path
+        d="M520 84C460 62 420 86 394 136 368 186 386 236 430 278 468 314 494 358 520 408"
+        stroke="#C36A3D"
+        stroke-opacity="0.12"
+        stroke-width="1.6"
+      />
+    </svg>
+
+    <!-- Botanical motif echoes the plant in the existing workspace illustration. -->
+    <svg class="experience__botanical" viewBox="0 0 320 420" fill="none">
+      <g stroke="#C36A3D" stroke-opacity="0.2" stroke-width="1.4" stroke-linecap="round">
+        <path d="M310 -10C272 62 236 132 206 204 185 256 175 322 170 400" />
+        <path d="M255 110C278 80 310 74 340 88" />
+      </g>
+      <g fill="#88A86D" fill-opacity="0.16">
+        <path d="M275 70C240 40 205 42 178 70 210 92 245 94 275 70Z" />
+        <path d="M245 135C210 105 175 108 148 136 180 158 215 160 245 135Z" />
+        <path d="M215 205C180 175 145 178 118 206 150 228 185 230 215 205Z" />
+        <path d="M192 268C158 240 124 244 98 272 130 292 162 294 192 268Z" />
+        <path d="M255 110C275 78 310 72 340 88 322 118 288 132 255 110Z" />
+      </g>
+      <g stroke="#E9D1BB" stroke-opacity="0.28" stroke-width="1.4" fill="none">
+        <path d="M275 70C246 66 212 66 178 70" />
+        <path d="M245 135C216 131 182 131 148 136" />
+        <path d="M215 205C186 201 152 201 118 206" />
+        <path d="M192 268C164 264 130 266 98 272" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="relative mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+    <header class="experience__header">
+      <p class="experience-eyebrow flex items-center gap-3">
+        <span class="experience-eyebrow__line" aria-hidden="true"></span>
+        <span>PROFESSIONAL EXPERIENCE</span>
+      </p>
+
+      <h2
+        id="experience-title"
+        class="experience-heading mt-4 flex flex-wrap items-center gap-x-4 text-[clamp(2rem,3.8vw,3.35rem)] leading-[1.14] tracking-[-0.025em]"
+      >
+        <span>My Journey So Far</span>
+        <span class="experience-heading__mark" aria-hidden="true"></span>
+      </h2>
+    </header>
+
+    <div
+      class="mt-10 grid min-w-0 grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] xl:mt-12 xl:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] xl:gap-x-14"
+    >
+      <app-experience-timeline [entries]="entries" />
+
+      <app-experience-highlights class="xl:mt-1" [highlights]="highlights" />
+    </div>
+  </div>
+</section>

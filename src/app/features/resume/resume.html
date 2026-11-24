@@ -1,0 +1,52 @@
+<section
+  #resumeRoot
+  id="resume"
+  class="resume-section relative py-12 sm:py-16 lg:py-20"
+  aria-labelledby="resume-title"
+>
+  <div class="mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+    <div class="resume-banner group/banner relative isolate overflow-hidden rounded-[1.75rem]">
+      <div class="resume-banner__book" aria-hidden="true">
+        <img
+          [src]="backgroundImageUrl"
+          alt=""
+          class="resume-banner__book-image"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="resume-banner__book-overlay"></span>
+      </div>
+
+      <div class="resume-banner__glow" aria-hidden="true"></div>
+
+      <div
+        class="resume-banner__content relative z-10 flex flex-col gap-6 px-6 py-6 sm:px-8 sm:py-7 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-10"
+      >
+        <div class="flex min-w-0 items-start gap-4 sm:items-center sm:gap-5">
+          <span class="resume-banner__icon" aria-hidden="true">
+            <lucide-icon [img]="fileTextIcon" [size]="22" [strokeWidth]="1.8" />
+          </span>
+
+          <div class="min-w-0">
+            <h2 id="resume-title" class="resume-banner__title">Download My Resume</h2>
+            <p class="resume-banner__description">
+              Get a detailed overview of my experience, skills, and projects.
+            </p>
+          </div>
+        </div>
+
+        <a
+          class="resume-banner__cta"
+          [href]="resumeUrl"
+          [attr.download]="resumeFileName"
+          aria-label="Download CV as PDF"
+        >
+          <span class="resume-banner__cta-icon" aria-hidden="true">
+            <lucide-icon [img]="downloadIcon" [size]="18" [strokeWidth]="2" />
+          </span>
+          <span>Download CV</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

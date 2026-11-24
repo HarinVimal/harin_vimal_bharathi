@@ -1,0 +1,16 @@
+<aside class="experience-highlights" aria-labelledby="experience-highlights-title">
+  <span class="experience-highlights__glow" aria-hidden="true"></span>
+
+  <h3 id="experience-highlights-title" class="experience-highlights__title">
+    <lucide-icon [img]="sparkleIcon" [size]="14" [strokeWidth]="2" aria-hidden="true" />
+    <span>KEY HIGHLIGHTS</span>
+  </h3>
+
+  <ul class="experience-highlights__list">
+    @for (highlight of highlights(); track highlight.title) {
+      <li class="experience-highlights__item">
+        <app-experience-highlight-item [highlight]="highlight" />
+      </li>
+    }
+  </ul>
+</aside>

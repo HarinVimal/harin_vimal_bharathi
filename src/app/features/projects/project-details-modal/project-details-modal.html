@@ -1,0 +1,183 @@
+<dialog
+  #overlay
+  class="project-modal"
+  aria-labelledby="project-modal-title"
+  aria-describedby="project-modal-summary"
+  (cancel)="onCancel($event)"
+>
+  <div #dialog class="project-modal__dialog" role="document">
+    <header class="project-modal__topbar">
+      <p class="project-modal__eyebrow">
+        <lucide-icon [img]="sparkleIcon" [size]="13" [strokeWidth]="2" />
+        <span>Project Details</span>
+      </p>
+
+      <button
+        #closeButton
+        type="button"
+        class="project-modal__close"
+        aria-label="Close project details"
+        (click)="requestClose()"
+      >
+        <lucide-icon [img]="closeIcon" [size]="17" [strokeWidth]="2" />
+      </button>
+    </header>
+
+    <div class="project-modal__hero">
+      <figure class="project-modal__media">
+        <img class="project-modal__image" [src]="project().coverImage" [alt]="coverAlt()" />
+        <figcaption>Illustrative artwork — not an application screenshot</figcaption>
+      </figure>
+
+      <aside class="project-modal__stack" aria-labelledby="project-modal-tech-title">
+        <p class="project-modal__stack-label">Tech Stack</p>
+        <h3 id="project-modal-tech-title" class="project-modal__stack-title">Technologies Used</h3>
+        <div class="project-modal__tech-grid">
+          @for (technology of project().technologies; track technology.name) {
+            <app-technology-badge [technology]="technology" />
+          }
+        </div>
+      </aside>
+    </div>
+
+    <div class="project-modal__content">
+      <section class="project-modal__section" aria-labelledby="project-modal-title">
+        <p class="project-modal__section-label">Project Overview</p>
+        <h2 id="project-modal-title" class="project-modal__title">{{ project().title }}</h2>
+
+        <div class="project-modal__meta">
+          <span class="project-modal__meta-chip">{{ project().category }}</span>
+          @if (project().company; as company) {
+            <span class="project-modal__meta-chip project-modal__meta-chip--muted">
+              <lucide-icon [img]="companyIcon" [size]="12" [strokeWidth]="2" />
+              {{ company }}
+            </span>
+          }
+        </div>
+
+        <p id="project-modal-summary" class="project-modal__summary">
+          {{ project().fullDescription }}
+        </p>
+      </section>
+
+      <section class="project-modal__section" aria-labelledby="project-modal-features-title">
+        <p class="project-modal__section-label">What It Does</p>
+        <h3 id="project-modal-features-title" class="project-modal__section-title">Key Features</h3>
+
+        <div class="project-modal__feature-grid">
+          @for (feature of project().keyFeatures; track feature.title) {
+            <article class="project-modal__feature">
+              <span class="project-modal__feature-icon" aria-hidden="true">
+                <lucide-icon [img]="featureIcon" [size]="15" [strokeWidth]="2" />
+              </span>
+              <div>
+                <h4>{{ feature.title }}</h4>
+                <p>{{ feature.description }}</p>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="project-modal__section" aria-labelledby="project-modal-role-title">
+        <p class="project-modal__section-label">Contribution</p>
+        <h3 id="project-modal-role-title" class="project-modal__section-title">
+          My Role &amp; Responsibilities
+        </h3>
+
+        <div class="project-modal__role-grid">
+          @if (independentResponsibilities().length) {
+            <div class="project-modal__role-group">
+              <p class="project-modal__role-label">Independent development</p>
+              <ul>
+                @for (item of independentResponsibilities(); track item.text) {
+                  <li>
+                    <lucide-icon [img]="responsibilityIcon" [size]="13" [strokeWidth]="2.4" />
+                    <span>{{ item.text }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+
+          @if (collaborativeResponsibilities().length) {
+            <div class="project-modal__role-group">
+              <p class="project-modal__role-label">Team contributions</p>
+              <ul>
+                @for (item of collaborativeResponsibilities(); track item.text) {
+                  <li>
+                    <lucide-icon [img]="responsibilityIcon" [size]="13" [strokeWidth]="2.4" />
+                    <span>{{ item.text }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="project-modal__section" aria-labelledby="project-modal-technical-title">
+        <p class="project-modal__section-label">Under the Hood</p>
+        <h3 id="project-modal-technical-title" class="project-modal__section-title">
+          Technical Implementation
+        </h3>
+
+        <div class="project-modal__highlight-grid">
+          @for (
+            highlight of project().technicalHighlights;
+            track highlight.label;
+            let index = $index
+          ) {
+            <article class="project-modal__highlight">
+              <span class="project-modal__highlight-icon" aria-hidden="true">
+                <lucide-icon [img]="iconForHighlight(index)" [size]="16" [strokeWidth]="1.8" />
+              </span>
+              <h4>{{ highlight.label }}</h4>
+              <p>{{ highlight.detail }}</p>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="project-modal__section" aria-labelledby="project-modal-impact-title">
+        <p class="project-modal__section-label">Results</p>
+        <h3 id="project-modal-impact-title" class="project-modal__section-title">
+          Achievements &amp; Impact
+        </h3>
+
+        @if (hasAchievements()) {
+          <ul class="project-modal__achievements">
+            @for (achievement of project().achievements; track achievement) {
+              <li>
+                <span class="project-modal__achievement-icon" aria-hidden="true">
+                  <lucide-icon [img]="achievementIcon" [size]="15" [strokeWidth]="2" />
+                </span>
+                <span>{{ achievement }}</span>
+              </li>
+            }
+          </ul>
+        } @else {
+          <p class="project-modal__note">{{ noMetricsNote }}</p>
+        }
+
+        @if (project().liveUrl; as liveUrl) {
+          <a class="project-modal__link" [href]="liveUrl" target="_blank" rel="noopener noreferrer">
+            <lucide-icon [img]="liveIcon" [size]="14" [strokeWidth]="2" />
+            View live project
+          </a>
+        }
+        @if (project().repositoryUrl; as repositoryUrl) {
+          <a
+            class="project-modal__link"
+            [href]="repositoryUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <lucide-icon [img]="repositoryIcon" [size]="14" [strokeWidth]="2" />
+            View source repository
+          </a>
+        }
+      </section>
+    </div>
+  </div>
+</dialog>

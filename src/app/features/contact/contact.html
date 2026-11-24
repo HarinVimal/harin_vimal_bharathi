@@ -1,0 +1,52 @@
+<section
+  #contactRoot
+  id="contact"
+  class="contact-section"
+  aria-labelledby="contact-title"
+>
+  <div class="contact-section__inner">
+    <div class="contact-layout">
+      <div class="contact-intro">
+        <p class="contact-intro__label">GET IN TOUCH</p>
+        <h2 id="contact-title" class="contact-intro__title">
+          <span class="contact-intro__title-line">Let’s Build</span>
+          <span class="contact-intro__title-line">Something Great</span>
+        </h2>
+        <p class="contact-intro__description">
+          Have a project idea, opportunity or collaboration in mind? I'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-divider" aria-hidden="true"></div>
+
+      <div class="contact-details">
+        <ul class="contact-list" aria-label="Contact information">
+          @for (item of contactItems; track item.label) {
+            <li class="contact-item">
+              <span class="contact-item__icon" aria-hidden="true">
+                <lucide-icon [img]="item.icon" [size]="22" [strokeWidth]="1.8" />
+              </span>
+
+              <div class="contact-item__body">
+                <span class="contact-item__label">{{ item.label }}</span>
+                @if (item.href) {
+                  <a
+                    class="contact-item__link"
+                    [href]="item.href"
+                    [attr.target]="item.external ? '_blank' : null"
+                    [attr.rel]="item.external ? 'noopener noreferrer' : null"
+                    [attr.aria-label]="item.label + ': ' + item.value"
+                  >
+                    {{ item.value }}
+                  </a>
+                } @else {
+                  <span class="contact-item__text">{{ item.value }}</span>
+                }
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

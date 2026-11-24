@@ -1,0 +1,214 @@
+:host {
+  display: block;
+}
+
+.certifications {
+  --certifications-heading: #663b2d;
+
+  position: relative;
+  background:
+    radial-gradient(ellipse 58% 40% at 50% -2%, rgba(195, 106, 61, 0.08), transparent 72%),
+    radial-gradient(ellipse 46% 36% at 10% 78%, rgba(233, 209, 187, 0.24), transparent 76%);
+}
+
+:host-context([data-theme='dark']) .certifications {
+  --certifications-heading: #f8f2ea;
+}
+
+.certifications__ambient {
+  position: absolute;
+  top: -8rem;
+  left: 50%;
+  width: 34rem;
+  height: 24rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(195, 106, 61, 0.16), transparent 68%);
+  filter: blur(58px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: certifications-ambient-drift 16s ease-in-out infinite;
+}
+
+.certifications__fabric {
+  position: absolute;
+  bottom: -6rem;
+  left: -7rem;
+  width: min(58rem, 82vw);
+  opacity: 0.85;
+}
+
+.certifications__ornament {
+  position: absolute;
+  top: 2.5rem;
+  right: 3%;
+  width: min(26rem, 32vw);
+}
+
+.certifications__botanical {
+  position: absolute;
+  width: min(15rem, 18vw);
+  opacity: 0.7;
+
+  &--left {
+    bottom: -3rem;
+    left: -5rem;
+    transform: rotate(-8deg);
+  }
+
+  &--right {
+    top: 6rem;
+    right: -5.5rem;
+    transform: rotate(10deg);
+  }
+}
+
+.certifications__eyebrow {
+  color: #c36a3d;
+  font-family: 'JetBrains Mono', var(--font-ui);
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.25;
+}
+
+.certifications__eyebrow-icon {
+  display: inline-grid;
+  width: 1.45rem;
+  height: 1.45rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid rgba(195, 106, 61, 0.35);
+  border-radius: 50%;
+  background: rgba(195, 106, 61, 0.08);
+}
+
+.certifications__eyebrow-line {
+  display: block;
+  width: 2.6rem;
+  height: 1px;
+  flex: none;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.certifications__heading {
+  color: var(--certifications-heading);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.certifications__intro {
+  color: #663b2d;
+  font-family: var(--font-ui);
+  opacity: 0.84;
+}
+
+.certifications__gallery {
+  align-items: stretch;
+}
+
+.certifications__show-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid rgba(195, 106, 61, 0.45);
+  border-radius: 999px;
+  color: #663b2d;
+  background: rgba(248, 242, 234, 0.72);
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 14px 30px -24px rgba(102, 59, 45, 0.9);
+  transition:
+    transform 280ms ease,
+    border-color 280ms ease,
+    background 280ms ease,
+    color 280ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    color: #f8f2ea;
+    border-color: #c36a3d;
+    background: #c36a3d;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #c36a3d;
+    outline-offset: 3px;
+  }
+}
+
+:host-context([data-theme='dark']) {
+  .certifications__intro {
+    color: #e9d1bb;
+  }
+
+  .certifications__show-more {
+    color: #f8f2ea;
+    background: rgba(102, 59, 45, 0.4);
+  }
+}
+
+@keyframes certifications-ambient-drift {
+  0%,
+  100% {
+    transform: translateX(-50%) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translateX(-50%) translate3d(14px, 10px, 0);
+  }
+}
+
+@media (max-width: 1279px) {
+  .certifications__botanical {
+    opacity: 0.45;
+  }
+
+  .certifications__ornament {
+    right: -3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .certifications__botanical {
+    opacity: 0.32;
+  }
+
+  .certifications__botanical--left {
+    left: -7rem;
+  }
+
+  .certifications__botanical--right {
+    right: -8rem;
+  }
+
+  .certifications__ornament {
+    top: 2rem;
+    right: -6rem;
+    width: 20rem;
+  }
+
+  .certifications__fabric {
+    bottom: -4rem;
+    left: -12rem;
+    width: 46rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .certifications__ambient {
+    animation: none;
+  }
+
+  .certifications__show-more {
+    transition: none;
+  }
+
+  .certifications__show-more:hover {
+    transform: none;
+  }
+}

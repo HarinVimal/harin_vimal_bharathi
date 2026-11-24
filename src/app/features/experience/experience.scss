@@ -1,0 +1,152 @@
+:host {
+  display: block;
+}
+
+.experience {
+  --experience-heading: #663b2d;
+
+  position: relative;
+  background:
+    radial-gradient(ellipse 62% 42% at 50% -4%, rgba(195, 106, 61, 0.075), transparent 72%),
+    radial-gradient(ellipse 52% 44% at 94% 70%, rgba(233, 209, 187, 0.26), transparent 76%);
+}
+
+:host-context([data-theme='dark']) .experience {
+  --experience-heading: #f8f2ea;
+}
+
+.experience__ambient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.experience__ambient--copper {
+  top: -7rem;
+  left: 50%;
+  width: 32rem;
+  height: 22rem;
+  background: radial-gradient(circle, rgba(195, 106, 61, 0.16), transparent 68%);
+  transform: translateX(-50%);
+}
+
+.experience__ambient--sand {
+  right: -10rem;
+  bottom: -6rem;
+  width: 34rem;
+  height: 28rem;
+  background: radial-gradient(circle, rgba(233, 209, 187, 0.45), transparent 70%);
+}
+
+.experience__streak {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(195, 106, 61, 0.13), transparent);
+}
+
+.experience__streak--one {
+  top: 22%;
+}
+
+.experience__streak--two {
+  top: 68%;
+  background: linear-gradient(90deg, transparent, rgba(233, 209, 187, 0.5), transparent);
+}
+
+.experience__organic {
+  position: absolute;
+  top: 2rem;
+  right: -6rem;
+  width: min(34rem, 48vw);
+  opacity: 0.9;
+}
+
+.experience__botanical {
+  position: absolute;
+  top: -2.5rem;
+  right: -5.5rem;
+  width: min(20rem, 24vw);
+  opacity: 0.85;
+  transform: rotate(8deg);
+}
+
+.experience-eyebrow {
+  color: #c36a3d;
+  font-family: 'JetBrains Mono', var(--font-ui);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.2;
+}
+
+.experience-eyebrow__line {
+  display: block;
+  width: 2.4rem;
+  height: 1px;
+  flex: none;
+  background: currentColor;
+}
+
+.experience-heading {
+  color: var(--experience-heading);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.experience-heading__mark {
+  position: relative;
+  display: block;
+  width: 2.2rem;
+  height: 2px;
+  flex: none;
+  border-radius: 2px;
+  background: #c36a3d;
+  box-shadow: 0 0 10px rgba(195, 106, 61, 0.35);
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: -0.4rem;
+    width: 0.32rem;
+    height: 0.32rem;
+    border-radius: 50%;
+    background: #c36a3d;
+    content: '';
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 1279px) {
+  .experience__botanical {
+    right: -7rem;
+    width: 16rem;
+    opacity: 0.6;
+  }
+
+  .experience__organic {
+    right: -8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .experience__botanical {
+    top: 1rem;
+    right: -8rem;
+    width: 15rem;
+    opacity: 0.45;
+  }
+
+  .experience__organic {
+    top: 3rem;
+    right: -10rem;
+    width: 26rem;
+    opacity: 0.6;
+  }
+
+  .experience-heading__mark {
+    width: 1.6rem;
+  }
+}

@@ -1,0 +1,61 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.experience-timeline {
+  position: relative;
+  min-width: 0;
+}
+
+.experience-timeline__rail {
+  position: absolute;
+  top: 0.85rem;
+  bottom: 2.5rem;
+  left: 0.575rem;
+  width: 1px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(195, 106, 61, 0.06),
+    rgba(195, 106, 61, 0.34) 12%,
+    rgba(195, 106, 61, 0.34) 88%,
+    rgba(195, 106, 61, 0.06)
+  );
+  transform: translateX(-50%);
+}
+
+.experience-timeline__rail-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #d68455, #c36a3d 55%, #663b2d);
+  box-shadow: 0 0 8px rgba(195, 106, 61, 0.45);
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+.experience-timeline__list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-timeline__item {
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .experience-timeline__rail {
+    top: 0.7rem;
+    bottom: 3rem;
+    left: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-timeline__rail-fill {
+    transform: scaleY(1);
+  }
+}

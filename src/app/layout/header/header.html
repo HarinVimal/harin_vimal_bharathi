@@ -1,0 +1,165 @@
+<header class="site-header" [class.is-scrolled]="isScrolled()" [class.is-menu-open]="isMenuOpen()">
+  <div class="header-inner flex items-center">
+    <a
+      class="brand"
+      href="#home"
+      aria-label="Harin Vimal Bharathi J, Full Stack developer — back to Home"
+      (click)="onHomeClick($event)"
+    >
+      <img class="brand-logo" [src]="logoUrl" alt="" width="120" height="52" />
+      <span class="brand-copy" aria-hidden="true">
+        <span class="brand-name">Harin Vimal Bharathi J</span>
+        <span class="brand-role">Full Stack developer</span>
+      </span>
+    </a>
+
+    <app-navigation class="desktop-navigation" />
+
+    <div class="header-actions">
+      <button
+        class="theme-toggle"
+        type="button"
+        [attr.aria-label]="themeService.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
+        [attr.aria-pressed]="themeService.isDark()"
+        (click)="themeService.toggleTheme()"
+      >
+        <span
+          class="theme-icon moon-icon"
+          [class.is-visible]="!themeService.isDark()"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            focusable="false"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+          </svg>
+        </span>
+        <span
+          class="theme-icon sun-icon"
+          [class.is-visible]="themeService.isDark()"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            />
+          </svg>
+        </span>
+      </button>
+
+      <ng-container [ngTemplateOutlet]="primaryActions" />
+
+      <button
+        #menuToggle
+        class="menu-toggle"
+        type="button"
+        [attr.aria-expanded]="isMenuOpen()"
+        [attr.aria-controls]="isMenuOpen() ? 'mobile-navigation' : null"
+        [attr.aria-label]="isMenuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
+        (click)="toggleMenu()"
+      >
+        @if (isMenuOpen()) {
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        } @else {
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        }
+      </button>
+    </div>
+  </div>
+
+  @if (isMenuOpen()) {
+    <div
+      id="mobile-navigation"
+      class="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site menu"
+      (keydown)="onMenuKeydown($event)"
+    >
+      <app-navigation #mobileNavigation variant="mobile" (linkSelected)="closeMenu()" />
+      <div class="mobile-actions">
+        <ng-container [ngTemplateOutlet]="primaryActions" />
+      </div>
+    </div>
+  }
+
+  <ng-template #primaryActions>
+    <a class="cv-button" [href]="cvUrl" [attr.download]="cvFileName">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M12 3v12m0 0 5-5m-5 5-5-5" />
+        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+      </svg>
+      <span>Download CV</span>
+    </a>
+
+    <button
+      class="cta-button"
+      type="button"
+      [style.--magnetic-x]="magneticOffset().x + 'px'"
+      [style.--magnetic-y]="magneticOffset().y + 'px'"
+      (click)="onTalkClick()"
+      (pointermove)="onCtaPointerMove($event)"
+      (pointerleave)="onCtaPointerLeave()"
+    >
+      <span>Let's Talk</span>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M7 17 17 7M8 7h9v9" />
+      </svg>
+    </button>
+  </ng-template>
+</header>

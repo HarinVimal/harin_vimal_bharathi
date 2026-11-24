@@ -1,0 +1,116 @@
+<article
+  class="certification-card"
+  [class.certification-card--featured]="certification().isFeatured"
+  [attr.aria-label]="certification().title"
+>
+  @if (certification().isFeatured) {
+    <span class="certification-card__ribbon">FEATURED</span>
+  }
+
+  <div class="certification-card__preview">
+    <span
+      class="certification-card__corner certification-card__corner--tl"
+      aria-hidden="true"
+    ></span>
+    <span
+      class="certification-card__corner certification-card__corner--tr"
+      aria-hidden="true"
+    ></span>
+    <span
+      class="certification-card__corner certification-card__corner--bl"
+      aria-hidden="true"
+    ></span>
+    <span
+      class="certification-card__corner certification-card__corner--br"
+      aria-hidden="true"
+    ></span>
+
+    @if (hasVerification()) {
+      <span class="certification-card__verified">
+        <lucide-icon [img]="badgeCheckIcon" [size]="12" [strokeWidth]="2.2" />
+        VERIFIED
+      </span>
+    }
+
+    @if (certification().imagePath && !imageFailed()) {
+      <img
+        class="certification-card__image"
+        [src]="certification().imagePath"
+        [alt]="imageAlt()"
+        loading="lazy"
+        decoding="async"
+        (error)="onImageError()"
+      />
+    } @else if (certification().pdfPath) {
+      <div class="certification-card__record">
+        <span class="certification-card__seal" aria-hidden="true">
+          <lucide-icon [img]="fileIcon" [size]="24" [strokeWidth]="1.5" />
+        </span>
+        <span class="certification-card__record-issuer">{{ certification().issuer }}</span>
+        <span class="certification-card__record-title">{{ certification().title }}</span>
+        <span class="certification-card__record-note">PDF DOCUMENT</span>
+      </div>
+    } @else {
+      <div class="certification-card__record">
+        <span class="certification-card__seal" aria-hidden="true">
+          <lucide-icon [img]="awardIcon" [size]="24" [strokeWidth]="1.5" />
+        </span>
+        <span class="certification-card__record-issuer">{{ certification().issuer }}</span>
+        <span class="certification-card__record-title">{{ certification().title }}</span>
+        <span class="certification-card__record-note">CREDENTIAL RECORD</span>
+      </div>
+    }
+  </div>
+
+  <div class="certification-card__body">
+    <p class="certification-card__issuer">
+      <span aria-hidden="true">{{ issuerInitial() }}</span>
+      {{ certification().issuer }}
+    </p>
+
+    <h3 class="certification-card__title">{{ certification().title }}</h3>
+
+    <div class="certification-card__meta">
+      @if (certification().issueDate) {
+        <span class="certification-card__date">
+          <lucide-icon [img]="calendarIcon" [size]="12" [strokeWidth]="1.8" aria-hidden="true" />
+          {{ certification().issueDate }}
+        </span>
+      }
+      @if (certification().credentialId) {
+        <span class="certification-card__credential">ID · {{ certification().credentialId }}</span>
+      }
+    </div>
+
+    @if (certification().description) {
+      <p class="certification-card__description">{{ certification().description }}</p>
+    }
+
+    <div class="certification-card__actions">
+      <button
+        type="button"
+        class="certification-card__view"
+        [attr.aria-label]="'Open preview for ' + certification().title"
+        (click)="view.emit(certification())"
+      >
+        View Certificate
+        <lucide-icon [img]="arrowIcon" [size]="13" [strokeWidth]="2" aria-hidden="true" />
+      </button>
+
+      @if (certification().verificationUrl; as verificationUrl) {
+        <a
+          class="certification-card__verify"
+          [href]="verificationUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="'Verify ' + certification().title + ' (opens in a new tab)'"
+        >
+          Verify Credential
+          <lucide-icon [img]="externalIcon" [size]="12" [strokeWidth]="2" aria-hidden="true" />
+        </a>
+      }
+    </div>
+  </div>
+
+  <span class="certification-card__edge" aria-hidden="true"></span>
+</article>

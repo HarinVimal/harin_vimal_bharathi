@@ -1,0 +1,94 @@
+<div
+  #dialog
+  class="certificate-modal__dialog"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="certificate-modal-title"
+>
+  <button
+    #closeButton
+    type="button"
+    class="certificate-modal__close"
+    aria-label="Close certificate preview"
+    (click)="requestClose()"
+  >
+    <lucide-icon [img]="closeIcon" [size]="17" [strokeWidth]="2" />
+  </button>
+
+  <div class="certificate-modal__preview">
+    @if (certification().imagePath && !isPdf()) {
+      <img
+        class="certificate-modal__image"
+        [src]="certification().imagePath"
+        [alt]="'Certificate for ' + certification().title"
+      />
+    } @else if (isPdf() && sourcePath()) {
+      <iframe
+        class="certificate-modal__frame"
+        [src]="sourcePath()"
+        [title]="certification().title + ' PDF document'"
+      ></iframe>
+    } @else {
+      <div class="certificate-modal__record">
+        <span class="certificate-modal__seal" aria-hidden="true">
+          <lucide-icon [img]="awardIcon" [size]="32" [strokeWidth]="1.4" />
+        </span>
+        <p class="certificate-modal__record-issuer">{{ certification().issuer }}</p>
+        <p class="certificate-modal__record-title">{{ certification().title }}</p>
+        <p class="certificate-modal__record-note">
+          No certificate file is attached to this credential yet.
+        </p>
+      </div>
+    }
+  </div>
+
+  <div class="certificate-modal__details">
+    <p class="certificate-modal__issuer">{{ certification().issuer }}</p>
+    <h2 id="certificate-modal-title" class="certificate-modal__title">
+      {{ certification().title }}
+    </h2>
+
+    @if (certification().description) {
+      <p class="certificate-modal__description">{{ certification().description }}</p>
+    }
+
+    <dl class="certificate-modal__meta">
+      @if (certification().issueDate) {
+        <div>
+          <dt>Issued</dt>
+          <dd>{{ certification().issueDate }}</dd>
+        </div>
+      }
+      @if (certification().credentialId) {
+        <div>
+          <dt>Credential ID</dt>
+          <dd>{{ certification().credentialId }}</dd>
+        </div>
+      }
+    </dl>
+
+    <div class="certificate-modal__actions">
+      @if (sourcePath()) {
+        <a
+          class="certificate-modal__action certificate-modal__action--primary"
+          [href]="sourcePath()"
+          [attr.download]="certification().id"
+        >
+          <lucide-icon [img]="downloadIcon" [size]="14" [strokeWidth]="2" />
+          Download Certificate
+        </a>
+      }
+      @if (certification().verificationUrl; as verificationUrl) {
+        <a
+          class="certificate-modal__action"
+          [href]="verificationUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <lucide-icon [img]="externalIcon" [size]="14" [strokeWidth]="2" />
+          Verify Credential
+        </a>
+      }
+    </div>
+  </div>
+</div>

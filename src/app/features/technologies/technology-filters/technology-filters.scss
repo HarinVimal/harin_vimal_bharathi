@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+:host-context([data-theme='dark']) button:not(.technology-filter--active) {
+  border-color: rgba(233, 209, 187, 0.2);
+  color: #e9d1bb;
+  background: rgba(248, 242, 234, 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+
+  button:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,10 @@
+<aside class="about-highlights" aria-label="Personal highlights">
+  @for (highlight of highlights(); track highlight.label) {
+    <div class="about-highlight">
+      <span class="about-highlight__icon" aria-hidden="true">
+        <lucide-icon [img]="iconFor(highlight.icon)" [size]="16" [strokeWidth]="1.7" />
+      </span>
+      <span class="about-highlight__label">{{ highlight.label }}</span>
+    </div>
+  }
+</aside>

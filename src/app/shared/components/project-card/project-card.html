@@ -1,0 +1,49 @@
+<article class="project-card" [attr.aria-labelledby]="'project-title-' + project().id">
+  <div class="project-card__media">
+    <img
+      class="project-card__image"
+      [src]="project().thumbnailImage"
+      [alt]="coverAlt()"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class="project-card__gradient" aria-hidden="true"></span>
+    <span class="project-card__category">{{ project().category }}</span>
+  </div>
+
+  <div class="project-card__body">
+    <h3 class="project-card__title" [id]="'project-title-' + project().id">
+      {{ project().shortTitle }}
+    </h3>
+    <p class="project-card__description">{{ project().shortDescription }}</p>
+
+    @if (project().company) {
+      <p class="project-card__company">{{ project().company }}</p>
+    }
+
+    <div class="project-card__footer">
+      <div class="project-card__technologies" [attr.aria-label]="'Technologies used'">
+        @for (technology of visibleTechnologies(); track technology.name) {
+          <app-technology-badge [technology]="technology" [compact]="true" />
+        }
+        @if (hiddenTechnologyCount() > 0) {
+          <span class="project-card__more" [attr.aria-label]="'And more technologies'">
+            +{{ hiddenTechnologyCount() }}
+          </span>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="project-card__view"
+        [attr.aria-label]="'View details for ' + project().title"
+        (click)="projectOpened.emit(project())"
+      >
+        <span>View Project</span>
+        <lucide-icon [img]="viewIcon" [size]="15" [strokeWidth]="2" />
+      </button>
+    </div>
+  </div>
+
+  <span class="project-card__accent" aria-hidden="true"></span>
+</article>

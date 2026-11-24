@@ -1,0 +1,44 @@
+// Shared SCSS mixins.
+
+/// Copper / espresso glass-glow text used by the hero headline and CTA labels.
+/// `$tone: 'bright'` lifts the gradient toward light copper so it stays legible
+/// on dark/espresso button fills.
+@mixin glass-glow-text($tone: 'classic') {
+  display: inline-block;
+  color: transparent;
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 7px rgba(195, 106, 61, 0.55))
+    drop-shadow(0 2px 3px rgba(102, 59, 45, 0.3));
+  animation: glass-glow-sheen 7s ease-in-out infinite;
+
+  @if $tone == 'bright' {
+    background-image: linear-gradient(
+      100deg,
+      #e08c5c 0%,
+      #f8c9a5 28%,
+      #fff2e6 48%,
+      #f8c9a5 62%,
+      #c36a3d 100%
+    );
+  } @else {
+    background-image: linear-gradient(
+      100deg,
+      #663b2d 0%,
+      #8e5843 12%,
+      #c36a3d 28%,
+      #e08c5c 40%,
+      #f8c9a5 48%,
+      #e08c5c 54%,
+      #c36a3d 66%,
+      #8a4626 84%,
+      #663b2d 100%
+    );
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}

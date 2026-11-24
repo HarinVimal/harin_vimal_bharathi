@@ -1,0 +1,26 @@
+<figure class="workspace mx-auto w-full max-w-[34rem]">
+  <span class="workspace__ambient" aria-hidden="true"></span>
+
+  <div class="workspace__frame group relative aspect-[4/5] w-full">
+    <img
+      class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+      [src]="imageSrc()"
+      [alt]="imageAlt()"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class="workspace__vignette" aria-hidden="true"></span>
+  </div>
+
+  <figcaption class="workspace__card">
+    <span class="workspace__card-icon" aria-hidden="true">
+      <lucide-icon [img]="codeIcon" [size]="18" [strokeWidth]="1.8" />
+    </span>
+
+    <ul class="flex flex-col gap-1.5">
+      @for (role of roles(); track role) {
+        <li class="workspace__role">{{ role }}</li>
+      }
+    </ul>
+  </figcaption>
+</figure>

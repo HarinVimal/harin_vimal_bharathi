@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Illustration of finance workflows with invoices, payroll records, payments and reporting charts">
+  <defs>
+    <linearGradient id="fin-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDF8F1"/>
+      <stop offset="1" stop-color="#E9D1BB"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#fin-bg)"/>
+  <circle cx="845" cy="95" r="180" fill="#C36A3D" opacity=".08"/>
+  <circle cx="90" cy="490" r="200" fill="#663B2D" opacity=".06"/>
+
+  <rect x="48" y="48" width="864" height="444" rx="24" fill="#FFFDF9" stroke="#D9BEA6" stroke-width="2"/>
+  <rect x="48" y="48" width="864" height="46" rx="24" fill="#663B2D" opacity=".92"/>
+  <path d="M48 78h864v16H48z" fill="#663B2D" opacity=".92"/>
+  <circle cx="78" cy="71" r="6" fill="#C36A3D"/>
+  <circle cx="100" cy="71" r="6" fill="#E9D1BB"/>
+  <circle cx="122" cy="71" r="6" fill="#E9D1BB" opacity=".6"/>
+  <rect x="156" y="64" width="164" height="13" rx="6" fill="#F8F2EA" opacity=".5"/>
+
+  <g transform="translate(88 126)">
+    <rect width="252" height="326" rx="16" fill="#F7EBDD" stroke="#DCC2A9" stroke-width="2"/>
+    <rect x="22" y="22" width="100" height="13" rx="6" fill="#663B2D" opacity=".75"/>
+    <rect x="22" y="44" width="58" height="9" rx="4" fill="#C36A3D" opacity=".6"/>
+    <rect x="22" y="74" width="208" height="54" rx="10" fill="#FFFDF9"/>
+    <rect x="34" y="86" width="76" height="10" rx="5" fill="#663B2D" opacity=".3"/>
+    <rect x="34" y="104" width="118" height="8" rx="4" fill="#C36A3D" opacity=".45"/>
+    <g stroke="#663B2D" stroke-opacity=".18" stroke-width="2">
+      <path d="M22 152h208M22 186h208M22 220h208M22 254h208"/>
+    </g>
+    <g fill="#C36A3D" opacity=".45">
+      <rect x="34" y="162" width="92" height="8" rx="4"/><rect x="34" y="196" width="126" height="8" rx="4"/><rect x="34" y="230" width="76" height="8" rx="4"/>
+    </g>
+    <rect x="22" y="276" width="208" height="10" rx="5" fill="#C36A3D" opacity=".3"/>
+    <rect x="22" y="296" width="130" height="10" rx="5" fill="#663B2D" opacity=".18"/>
+  </g>
+
+  <rect x="368" y="126" width="230" height="152" rx="16" fill="#FFFDF9" stroke="#E0C6AE" stroke-width="2"/>
+  <rect x="390" y="148" width="112" height="11" rx="5" fill="#663B2D" opacity=".7"/>
+  <g transform="translate(390 180)">
+    <rect y="58" width="30" height="24" rx="5" fill="#E9D1BB"/>
+    <rect x="42" y="38" width="30" height="44" rx="5" fill="#C36A3D" opacity=".55"/>
+    <rect x="84" y="18" width="30" height="64" rx="5" fill="#C36A3D" opacity=".8"/>
+    <rect x="126" y="30" width="30" height="52" rx="5" fill="#663B2D" opacity=".5"/>
+    <path d="M0 0v82h186" stroke="#663B2D" stroke-opacity=".3" stroke-width="2"/>
+  </g>
+
+  <rect x="620" y="126" width="252" height="152" rx="16" fill="#FFFDF9" stroke="#E0C6AE" stroke-width="2"/>
+  <rect x="642" y="148" width="124" height="11" rx="5" fill="#663B2D" opacity=".7"/>
+  <g transform="translate(642 180)">
+    <circle cx="36" cy="42" r="34" fill="none" stroke="#E9D1BB" stroke-width="12"/>
+    <circle cx="36" cy="42" r="34" fill="none" stroke="#C36A3D" stroke-width="12" stroke-dasharray="150 64" stroke-linecap="round" transform="rotate(-90 36 42)"/>
+    <rect x="90" y="10" width="112" height="10" rx="5" fill="#663B2D" opacity=".25"/>
+    <rect x="90" y="32" width="84" height="10" rx="5" fill="#C36A3D" opacity=".5"/>
+    <rect x="90" y="54" width="100" height="10" rx="5" fill="#663B2D" opacity=".18"/>
+  </g>
+
+  <rect x="368" y="300" width="504" height="152" rx="16" fill="#FFFDF9" stroke="#E0C6AE" stroke-width="2"/>
+  <rect x="390" y="322" width="130" height="11" rx="5" fill="#663B2D" opacity=".7"/>
+  <g transform="translate(390 352)">
+    <rect width="140" height="76" rx="10" fill="#F7EBDD"/>
+    <rect x="12" y="14" width="52" height="9" rx="4" fill="#663B2D" opacity=".28"/>
+    <rect x="12" y="34" width="88" height="12" rx="6" fill="#C36A3D" opacity=".65"/>
+    <rect x="12" y="56" width="62" height="8" rx="4" fill="#C36A3D" opacity=".3"/>
+    <rect x="156" width="140" height="76" rx="10" fill="#F7EBDD"/>
+    <rect x="168" y="14" width="64" height="9" rx="4" fill="#663B2D" opacity=".28"/>
+    <rect x="168" y="34" width="76" height="12" rx="6" fill="#C36A3D" opacity=".45"/>
+    <rect x="168" y="56" width="54" height="8" rx="4" fill="#C36A3D" opacity=".3"/>
+    <rect x="312" width="140" height="76" rx="10" fill="#F7EBDD"/>
+    <rect x="324" y="14" width="58" height="9" rx="4" fill="#663B2D" opacity=".28"/>
+    <rect x="324" y="34" width="92" height="12" rx="6" fill="#C36A3D" opacity=".75"/>
+    <rect x="324" y="56" width="68" height="8" rx="4" fill="#C36A3D" opacity=".3"/>
+  </g>
+</svg>

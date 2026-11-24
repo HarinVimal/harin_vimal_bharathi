@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Illustration of human resources workflows with employee profiles, attendance calendar and shift planning">
+  <defs>
+    <linearGradient id="hrms-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDF8F1"/>
+      <stop offset="1" stop-color="#EBD5C0"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#hrms-bg)"/>
+  <circle cx="100" cy="70" r="175" fill="#C36A3D" opacity=".07"/>
+  <circle cx="860" cy="490" r="200" fill="#663B2D" opacity=".07"/>
+
+  <rect x="48" y="48" width="864" height="444" rx="24" fill="#FFFDF9" stroke="#D9BEA6" stroke-width="2"/>
+  <rect x="48" y="48" width="864" height="46" rx="24" fill="#663B2D" opacity=".92"/>
+  <path d="M48 78h864v16H48z" fill="#663B2D" opacity=".92"/>
+  <circle cx="78" cy="71" r="6" fill="#C36A3D"/>
+  <circle cx="100" cy="71" r="6" fill="#E9D1BB"/>
+  <circle cx="122" cy="71" r="6" fill="#E9D1BB" opacity=".6"/>
+  <rect x="156" y="64" width="138" height="13" rx="6" fill="#F8F2EA" opacity=".5"/>
+
+  <g transform="translate(86 126)">
+    <rect width="300" height="326" rx="16" fill="#F7EBDD" stroke="#DCC2A9" stroke-width="2"/>
+    <rect x="22" y="20" width="126" height="12" rx="6" fill="#663B2D" opacity=".72"/>
+    <g transform="translate(22 52)">
+      <rect width="256" height="72" rx="12" fill="#FFFDF9"/>
+      <circle cx="38" cy="36" r="23" fill="#E9D1BB"/>
+      <circle cx="38" cy="29" r="8" fill="#663B2D" opacity=".65"/>
+      <path d="M22 49c4-9 10-13 16-13s12 4 16 13" fill="#663B2D" opacity=".65"/>
+      <rect x="76" y="20" width="86" height="9" rx="4" fill="#663B2D" opacity=".42"/>
+      <rect x="76" y="38" width="62" height="8" rx="4" fill="#C36A3D" opacity=".45"/>
+      <rect x="76" y="52" width="104" height="7" rx="3" fill="#663B2D" opacity=".18"/>
+      <rect x="200" y="26" width="40" height="20" rx="10" fill="#C36A3D" opacity=".16"/>
+    </g>
+    <g transform="translate(22 136)">
+      <rect width="256" height="72" rx="12" fill="#FFFDF9"/>
+      <circle cx="38" cy="36" r="23" fill="#E9D1BB"/>
+      <circle cx="38" cy="29" r="8" fill="#663B2D" opacity=".5"/>
+      <path d="M22 49c4-9 10-13 16-13s12 4 16 13" fill="#663B2D" opacity=".5"/>
+      <rect x="76" y="20" width="72" height="9" rx="4" fill="#663B2D" opacity=".42"/>
+      <rect x="76" y="38" width="90" height="8" rx="4" fill="#C36A3D" opacity=".45"/>
+      <rect x="76" y="52" width="98" height="7" rx="3" fill="#663B2D" opacity=".18"/>
+      <rect x="200" y="26" width="40" height="20" rx="10" fill="#C36A3D" opacity=".16"/>
+    </g>
+    <g transform="translate(22 220)">
+      <rect width="256" height="72" rx="12" fill="#FFFDF9"/>
+      <circle cx="38" cy="36" r="23" fill="#E9D1BB"/>
+      <circle cx="38" cy="29" r="8" fill="#663B2D" opacity=".4"/>
+      <path d="M22 49c4-9 10-13 16-13s12 4 16 13" fill="#663B2D" opacity=".4"/>
+      <rect x="76" y="20" width="94" height="9" rx="4" fill="#663B2D" opacity=".42"/>
+      <rect x="76" y="38" width="58" height="8" rx="4" fill="#C36A3D" opacity=".45"/>
+      <rect x="76" y="52" width="88" height="7" rx="3" fill="#663B2D" opacity=".18"/>
+      <rect x="200" y="26" width="40" height="20" rx="10" fill="#C36A3D" opacity=".16"/>
+    </g>
+  </g>
+
+  <rect x="414" y="126" width="226" height="326" rx="16" fill="#FFFDF9" stroke="#E0C6AE" stroke-width="2"/>
+  <rect x="436" y="148" width="118" height="11" rx="5" fill="#663B2D" opacity=".72"/>
+  <g transform="translate(436 176)" fill="#C36A3D">
+    <rect y="0" width="30" height="8" rx="4" opacity=".35"/>
+    <rect x="40" y="0" width="30" height="8" rx="4" opacity=".35"/>
+    <rect x="80" y="0" width="30" height="8" rx="4" opacity=".35"/>
+    <rect x="120" y="0" width="30" height="8" rx="4" opacity=".35"/>
+  </g>
+  <g transform="translate(436 200)">
+    <g fill="#F4E7D8">
+      <rect y="0" width="30" height="30" rx="7"/><rect x="40" y="0" width="30" height="30" rx="7"/><rect x="80" y="0" width="30" height="30" rx="7"/><rect x="120" y="0" width="30" height="30" rx="7"/>
+      <rect y="40" width="30" height="30" rx="7"/><rect x="40" y="40" width="30" height="30" rx="7"/><rect x="80" y="40" width="30" height="30" rx="7"/><rect x="120" y="40" width="30" height="30" rx="7"/>
+      <rect y="80" width="30" height="30" rx="7"/><rect x="40" y="80" width="30" height="30" rx="7"/><rect x="80" y="80" width="30" height="30" rx="7"/><rect x="120" y="80" width="30" height="30" rx="7"/>
+      <rect y="120" width="30" height="30" rx="7"/><rect x="40" y="120" width="30" height="30" rx="7"/><rect x="80" y="120" width="30" height="30" rx="7"/><rect x="120" y="120" width="30" height="30" rx="7"/>
+    </g>
+    <g fill="#C36A3D" opacity=".7">
+      <rect x="4" y="4" width="22" height="22" rx="5"/><rect x="84" y="4" width="22" height="22" rx="5"/><rect x="124" y="4" width="22" height="22" rx="5"/>
+      <rect x="44" y="44" width="22" height="22" rx="5"/><rect x="84" y="44" width="22" height="22" rx="5"/>
+      <rect x="4" y="84" width="22" height="22" rx="5"/><rect x="44" y="84" width="22" height="22" rx="5"/><rect x="124" y="84" width="22" height="22" rx="5"/>
+      <rect x="4" y="124" width="22" height="22" rx="5"/><rect x="84" y="124" width="22" height="22" rx="5"/>
+    </g>
+  </g>
+
+  <rect x="664" y="126" width="210" height="150" rx="16" fill="#FFFDF9" stroke="#E0C6AE" stroke-width="2"/>
+  <rect x="686" y="148" width="96" height="11" rx="5" fill="#663B2D" opacity=".72"/>
+  <g transform="translate(686 178)">
+    <path d="M0 38h166" stroke="#E9D1BB" stroke-width="4"/>
+    <circle cx="83" cy="10" r="13" fill="#C36A3D" opacity=".8"/>
+    <circle cx="24" cy="60" r="13" fill="#663B2D" opacity=".55"/>
+    <circle cx="142" cy="60" r="13" fill="#663B2D" opacity=".55"/>
+    <path d="M83 23v15M83 38H24v9M83 38h59v9" fill="none" stroke="#C36A3D" stroke-width="3" stroke-opacity=".5"/>
+    <rect x="8" y="86" width="150" height="12" rx="6" fill="#F4E7D8"/>
+  </g>
+
+  <rect x="664" y="298" width="210" height="154" rx="16" fill="#FFFDF9" stroke="#E0C6AE" stroke-width="2"/>
+  <rect x="686" y="320" width="112" height="11" rx="5" fill="#663B2D" opacity=".72"/>
+  <g transform="translate(686 350)">
+    <rect width="166" height="34" rx="9" fill="#F7EBDD"/>
+    <rect x="10" y="12" width="60" height="10" rx="5" fill="#663B2D" opacity=".3"/>
+    <rect x="118" y="10" width="38" height="14" rx="7" fill="#C36A3D" opacity=".6"/>
+    <rect y="46" width="166" height="34" rx="9" fill="#FBF4EC"/>
+    <rect x="10" y="58" width="76" height="10" rx="5" fill="#663B2D" opacity=".22"/>
+    <rect x="118" y="56" width="38" height="14" rx="7" fill="#663B2D" opacity=".28"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<article class="experience-entry" [class.experience-entry--current]="entry().isCurrent">
+  <span class="experience-entry__marker" aria-hidden="true">
+    <span class="experience-entry__marker-glow"></span>
+    <span class="experience-entry__marker-core"></span>
+  </span>
+
+  <span class="experience-entry__icon" aria-hidden="true">
+    <lucide-icon [img]="entryIcon()" [size]="17" [strokeWidth]="1.7" />
+  </span>
+
+  <div class="experience-entry__content">
+    <div class="experience-entry__heading">
+      <div class="experience-entry__identity">
+        <h3 class="experience-entry__company">{{ entry().companyName }}</h3>
+        <p class="experience-entry__role">{{ entry().jobTitle }}</p>
+      </div>
+      <span class="experience-entry__date">
+        @if (entry().isCurrent) {
+          <span class="experience-entry__current-dot" aria-hidden="true"></span>
+        }
+        {{ dateLabel() }}
+      </span>
+    </div>
+
+    <p class="experience-entry__description">{{ entry().description }}</p>
+    <p class="experience-entry__tech">{{ technologyLabel() }}</p>
+  </div>
+</article>

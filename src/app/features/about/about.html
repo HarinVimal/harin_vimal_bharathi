@@ -1,0 +1,118 @@
+<section
+  #aboutRoot
+  id="about"
+  class="about relative isolate overflow-hidden py-20 sm:py-24 lg:py-28"
+  aria-labelledby="about-title"
+>
+  <!-- Soft paper folds and warm waves behind the content. -->
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <svg class="about__fabric" viewBox="0 0 820 520" fill="none" preserveAspectRatio="none">
+      <path
+        d="M0 0H500C430 84 372 92 292 142 212 192 168 278 0 322Z"
+        fill="#FFFBF5"
+        fill-opacity="0.58"
+      />
+      <path
+        d="M0 46C150 102 214 158 276 232 332 298 398 322 520 336 372 372 244 336 148 268 88 222 40 198 0 190Z"
+        fill="#F8F2EA"
+        fill-opacity="0.72"
+      />
+      <path
+        d="M0 0C128 58 212 112 286 200 350 278 432 316 548 330"
+        stroke="#FFFFFF"
+        stroke-opacity="0.5"
+        stroke-width="2"
+      />
+      <path
+        d="M0 118C124 164 194 222 256 296"
+        stroke="#E9D1BB"
+        stroke-opacity="0.48"
+        stroke-width="2"
+      />
+    </svg>
+
+    <svg class="about__wave" viewBox="0 0 760 420" fill="none" preserveAspectRatio="none">
+      <path
+        d="M-40 330C122 208 244 284 366 214 488 144 596 178 800 40V420H-40Z"
+        fill="#E9D1BB"
+        fill-opacity="0.2"
+      />
+      <path
+        d="M-40 370C130 252 250 320 374 252 500 182 610 214 800 88"
+        stroke="#C36A3D"
+        stroke-opacity="0.1"
+        stroke-width="2"
+      />
+    </svg>
+
+    <svg class="about__hairline" viewBox="0 0 420 150" fill="none">
+      <path
+        d="M10 122C96 32 214 12 410 76"
+        stroke="#C36A3D"
+        stroke-opacity="0.34"
+        stroke-width="1.4"
+        stroke-linecap="round"
+      />
+      <circle cx="10" cy="122" r="3" fill="#C36A3D" fill-opacity="0.5" />
+    </svg>
+
+    <span class="about__ambient about__ambient--left"></span>
+    <span class="about__ambient about__ambient--right"></span>
+  </div>
+
+  <div class="relative mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+    <div
+      class="grid items-center gap-x-10 gap-y-14 md:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:grid-cols-[minmax(0,0.86fr)_minmax(0,1fr)_9.5rem] xl:gap-x-12"
+    >
+      <app-workspace-visual
+        [imageSrc]="content.workspaceImage"
+        [imageAlt]="content.workspaceImageAlt"
+        [roles]="content.workspaceRoles"
+      />
+
+      <div class="about__copy min-w-0">
+        <p class="about__eyebrow flex items-center gap-3">
+          <span class="about__eyebrow-line" aria-hidden="true"></span>
+          <span>{{ content.eyebrow }}</span>
+        </p>
+
+        <h2
+          id="about-title"
+          class="about__heading mt-6 text-[clamp(2.1rem,4vw,3.6rem)] leading-[1.12] tracking-[-0.025em]"
+        >
+          @for (line of content.headingLines; track line.lead) {
+            <span class="about__heading-line block">
+              {{ line.lead }}
+              @if (line.accent) {
+                <span class="text-copper-accent">{{ line.accent }}</span>
+              }
+            </span>
+          }
+        </h2>
+
+        <p class="about__intro mt-6 max-w-[34rem] text-[0.98rem] leading-[1.8] sm:text-[1.05rem]">
+          {{ content.introduction }}
+        </p>
+
+        <ul class="about__strengths mt-7 flex flex-col gap-3">
+          @for (strength of content.strengths; track strength) {
+            <li class="about__strength flex items-start gap-3">
+              <span
+                class="about-check mt-[0.15rem] inline-grid flex-none place-items-center"
+                aria-hidden="true"
+              >
+                <lucide-icon [img]="checkIcon" [size]="15" [strokeWidth]="2" />
+              </span>
+              <span class="about__strength-label">{{ strength }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <app-about-highlights
+        class="md:col-span-2 xl:col-span-1 xl:justify-self-end"
+        [highlights]="content.highlights"
+      />
+    </div>
+  </div>
+</section>

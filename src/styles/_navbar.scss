@@ -1,0 +1,202 @@
+@use './mixins' as mixins;
+
+/* Brand lockup beside the logo. */
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
+  line-height: 1.1;
+}
+
+.brand-name {
+  color: var(--nav-text);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+}
+
+.brand-role {
+  color: var(--nav-hover);
+  font-size: 0.69rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+/* Shared navbar action buttons (used in both the bar and the mobile panel). */
+.cv-button,
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: none;
+  padding: 0.72rem 1.05rem;
+  border-radius: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  animation: navbar-action-enter 600ms cubic-bezier(0.22, 1, 0.36, 1) 360ms both;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--copper-accent);
+    outline-offset: 3px;
+  }
+}
+
+.cv-button {
+  border: 1px solid var(--nav-cv-border);
+  background: var(--nav-cv-background);
+  color: var(--nav-cv-text);
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease,
+    background-color 300ms ease,
+    color 300ms ease;
+
+  svg {
+    transition: transform 300ms ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -8px var(--nav-cv-glow);
+
+    svg {
+      transform: translateY(2px);
+    }
+  }
+}
+
+.cta-button {
+  --magnetic-x: 0px;
+  --magnetic-y: 0px;
+  --cta-lift: 0px;
+  --cta-scale: 1;
+
+  border: 1px solid transparent;
+  background: var(--nav-cta-background);
+  color: var(--nav-cta-text);
+  cursor: pointer;
+  transform: translate3d(var(--magnetic-x), calc(var(--magnetic-y) + var(--cta-lift)), 0)
+    scale(var(--cta-scale));
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease,
+    background-color 300ms ease;
+  animation-delay: 440ms;
+
+  svg {
+    filter: drop-shadow(0 0 5px rgba(195, 106, 61, 0.6));
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  > span {
+    @include mixins.glass-glow-text('bright');
+  }
+
+  &:hover {
+    --cta-lift: -2px;
+    --cta-scale: 1.035;
+
+    box-shadow: 0 12px 28px -10px var(--nav-cta-shadow);
+
+    svg {
+      transform: translate(3px, -3px);
+    }
+  }
+
+  &:active {
+    --cta-scale: 0.98;
+  }
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  padding: 1rem clamp(1rem, 5vw, 2rem) 1.75rem;
+  border-bottom: 1px solid var(--nav-menu-border);
+  background: var(--nav-menu-background);
+  box-shadow: 0 28px 60px -34px rgba(36, 23, 19, 0.4);
+  backdrop-filter: blur(20px) saturate(130%);
+  animation: navbar-menu-enter 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.mobile-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--nav-menu-border);
+
+  .cv-button,
+  .cta-button {
+    width: 100%;
+    animation-delay: 260ms;
+  }
+}
+
+@media (max-width: 599px) {
+  .brand-name {
+    font-size: 0.86rem;
+  }
+
+  .brand-role {
+    font-size: 0.62rem;
+  }
+
+  .mobile-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes navbar-action-enter {
+  from {
+    opacity: 0;
+    translate: 26px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes navbar-menu-enter {
+  from {
+    opacity: 0;
+    translate: 0 -12px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-button,
+  .cta-button,
+  .mobile-menu {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .cv-button:hover,
+  .cta-button:hover {
+    transform: none;
+  }
+}

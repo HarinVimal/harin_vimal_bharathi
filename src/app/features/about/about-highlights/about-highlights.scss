@@ -1,0 +1,72 @@
+:host {
+  display: block;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.about-highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid rgba(233, 209, 187, 0.55);
+  color: var(--about-body, #663b2d);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.about-highlight__icon {
+  display: inline-grid;
+  width: 1.9rem;
+  height: 1.9rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid rgba(195, 106, 61, 0.32);
+  border-radius: 50%;
+  color: #c36a3d;
+  background: rgba(195, 106, 61, 0.08);
+}
+
+.about-highlight__label {
+  font-family: 'Manrope', var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.012em;
+  line-height: 1.35;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .about-highlights {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .about-highlight {
+    flex: 1 1 12rem;
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 1rem;
+  }
+
+  .about-highlight {
+    gap: 0.5rem;
+    border-bottom: 0;
+  }
+
+  .about-highlight__label {
+    font-size: 0.74rem;
+  }
+}

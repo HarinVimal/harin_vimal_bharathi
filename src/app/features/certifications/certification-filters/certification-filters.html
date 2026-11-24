@@ -1,0 +1,17 @@
+<div
+  class="certification-filters flex flex-wrap items-center gap-2 sm:flex-nowrap sm:overflow-x-auto sm:pb-1"
+  role="group"
+  aria-label="Filter certifications by category"
+>
+  @for (filter of filters(); track filter.id) {
+    <button
+      type="button"
+      class="shrink-0"
+      [class]="activeFilter() === filter.id ? activeClasses : inactiveClasses"
+      [attr.aria-pressed]="activeFilter() === filter.id"
+      (click)="select(filter.id)"
+    >
+      {{ filter.label }}
+    </button>
+  }
+</div>

@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+:host-context([data-theme='dark']) .technology-card {
+  border-color: rgba(233, 209, 187, 0.18);
+  background: rgba(36, 23, 19, 0.62);
+}
+
+:host-context([data-theme='dark']) .technology-card__name {
+  color: #e9d1bb;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-card,
+  .technology-card img {
+    transition: none;
+  }
+
+  .technology-card:hover {
+    transform: none;
+  }
+}

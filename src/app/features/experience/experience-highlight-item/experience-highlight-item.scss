@@ -1,0 +1,85 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.experience-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding-block: 0.8rem;
+  border-bottom: 1px solid rgba(195, 106, 61, 0.16);
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.experience-highlight__icon {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid rgba(195, 106, 61, 0.26);
+  border-radius: 10px;
+  color: #c36a3d;
+  background: rgba(233, 209, 187, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition:
+    transform 280ms ease,
+    box-shadow 280ms ease,
+    border-color 280ms ease;
+}
+
+.experience-highlight__copy {
+  min-width: 0;
+}
+
+.experience-highlight__title {
+  color: #663b2d;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+.experience-highlight__description {
+  margin-top: 0.22rem;
+  color: #663b2d;
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  line-height: 1.6;
+  opacity: 0.78;
+}
+
+.experience-highlight:hover {
+  .experience-highlight__icon {
+    transform: translateY(-2px) scale(1.06);
+    border-color: rgba(195, 106, 61, 0.6);
+    box-shadow: 0 8px 18px -10px rgba(195, 106, 61, 0.8);
+  }
+
+  .experience-highlight__title {
+    color: #8a4528;
+  }
+}
+
+:host-context([data-theme='dark']) {
+  .experience-highlight__title,
+  .experience-highlight__description {
+    color: #f8f2ea;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-highlight__icon {
+    transition: none;
+  }
+}

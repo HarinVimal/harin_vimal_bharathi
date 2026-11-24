@@ -1,0 +1,94 @@
+<section
+  #projectsRoot
+  id="projects"
+  class="projects relative overflow-hidden py-20 sm:py-24 lg:py-28"
+  aria-labelledby="projects-title"
+>
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <span class="projects__ambient projects__ambient--copper"></span>
+    <span class="projects__ambient projects__ambient--sand"></span>
+
+    <svg class="projects__ornament" viewBox="0 0 520 280" fill="none" preserveAspectRatio="none">
+      <path
+        d="M-20 214C96 132 204 168 316 88 382 40 442 30 540 58"
+        stroke="#C36A3D"
+        stroke-opacity="0.11"
+        stroke-width="1.5"
+      />
+      <path
+        d="M-20 236C104 154 210 190 322 110 388 62 448 52 540 80"
+        stroke="#E9D1BB"
+        stroke-opacity="0.5"
+        stroke-width="1.5"
+      />
+    </svg>
+  </div>
+
+  <div class="relative mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+    <header
+      class="projects__header flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-10"
+    >
+      <div class="max-w-3xl">
+        <p class="projects__eyebrow flex items-center gap-3">
+          <span class="projects__eyebrow-line" aria-hidden="true"></span>
+          <span>PORTFOLIO</span>
+        </p>
+
+        <h2
+          id="projects-title"
+          class="projects__heading mt-4 text-[clamp(2rem,4vw,3.35rem)] leading-[1.14] tracking-[-0.025em]"
+        >
+          Featured <span class="text-copper-accent">Projects</span>
+        </h2>
+
+        <p class="projects__intro mt-4 max-w-[42rem] text-[0.95rem] leading-[1.8] sm:text-[1rem]">
+          A selection of real-world projects I've built and maintained.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="projects__toggle"
+        [attr.aria-expanded]="showAll()"
+        aria-controls="projects-expanded"
+        (click)="toggleProjects()"
+      >
+        <span>{{ showAll() ? 'Show Less Projects' : 'View All Projects' }}</span>
+        <lucide-icon
+          [img]="showAll() ? chevronUpIcon : chevronDownIcon"
+          [size]="15"
+          [strokeWidth]="2"
+        />
+      </button>
+    </header>
+
+    <div class="projects__featured-grid mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+      @for (project of featuredProjects(); track project.id) {
+        <app-project-card [project]="project" (projectOpened)="onProjectOpened($event)" />
+      }
+    </div>
+
+    <div class="projects__expansion" [class.projects__expansion--open]="showAll()">
+      <div
+        id="projects-expanded"
+        class="projects__expansion-inner"
+        [attr.inert]="showAll() ? null : ''"
+        [attr.aria-hidden]="showAll() ? null : 'true'"
+      >
+        <div class="projects__expanded-grid grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          @for (project of additionalProjects(); track project.id) {
+            <app-project-card [project]="project" (projectOpened)="onProjectOpened($event)" />
+          }
+        </div>
+      </div>
+    </div>
+
+    <p class="sr-only" aria-live="polite">
+      Showing {{ visibleProjectCount() }} of {{ totalProjectCount }} projects.
+    </p>
+  </div>
+
+  @if (selectedProject(); as project) {
+    <app-project-details-modal [project]="project" (closed)="closeModal()" />
+  }
+</section>

@@ -1,0 +1,140 @@
+:host {
+  display: block;
+}
+
+.about {
+  --about-heading: #663b2d;
+  --about-body: #663b2d;
+}
+
+:host-context([data-theme='dark']) .about {
+  --about-heading: #f8f2ea;
+  --about-body: #e9d1bb;
+}
+
+.about__fabric {
+  position: absolute;
+  top: -5rem;
+  left: -7rem;
+  width: min(52rem, 78vw);
+  opacity: 0.9;
+  animation: about-fabric-drift 14s ease-in-out infinite;
+}
+
+.about__wave {
+  position: absolute;
+  bottom: -9rem;
+  left: -5rem;
+  width: min(48rem, 72vw);
+  opacity: 0.85;
+}
+
+.about__hairline {
+  position: absolute;
+  top: 1.5rem;
+  right: 3%;
+  width: min(22rem, 30vw);
+}
+
+.about__ambient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.about__ambient--left {
+  top: 9rem;
+  left: -8rem;
+  width: 30rem;
+  height: 30rem;
+  background: rgba(233, 209, 187, 0.42);
+}
+
+.about__ambient--right {
+  right: -7rem;
+  bottom: 1rem;
+  width: 28rem;
+  height: 28rem;
+  background: rgba(195, 106, 61, 0.16);
+}
+
+.about__eyebrow {
+  color: #c36a3d;
+  font-family: 'JetBrains Mono', var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.2;
+}
+
+.about__eyebrow-line {
+  display: block;
+  width: 2.6rem;
+  height: 1px;
+  flex: none;
+  background: currentColor;
+  transform-origin: left center;
+}
+
+.about__heading {
+  color: var(--about-heading);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.about__intro,
+.about__strength-label {
+  color: var(--about-body);
+  font-family: var(--font-ui);
+}
+
+.about__intro {
+  opacity: 0.86;
+}
+
+.about__strength-label {
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.about-check {
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 1px solid rgba(195, 106, 61, 0.4);
+  border-radius: 50%;
+  color: #c36a3d;
+  background: rgba(195, 106, 61, 0.1);
+}
+
+@keyframes about-fabric-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(12px, 8px, 0) rotate(-1.5deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .about__fabric {
+    top: -3rem;
+    left: -9rem;
+    width: 42rem;
+  }
+
+  .about__hairline {
+    top: 2rem;
+    right: -2rem;
+    width: 16rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__fabric {
+    animation: none;
+  }
+}

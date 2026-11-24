@@ -1,0 +1,16 @@
+<div
+  class="technology-filters flex flex-wrap items-center gap-2"
+  role="group"
+  aria-label="Filter technologies by category"
+>
+  @for (category of categories; track category.id) {
+    <button
+      type="button"
+      [class]="activeCategory() === category.id ? activeClasses : inactiveClasses"
+      [attr.aria-pressed]="activeCategory() === category.id"
+      (click)="select(category.id)"
+    >
+      {{ category.label }}
+    </button>
+  }
+</div>

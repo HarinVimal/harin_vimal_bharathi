@@ -1,0 +1,229 @@
+:host {
+  display: block;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--navbar-height);
+  padding-inline: clamp(1rem, 3vw, 3rem);
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    height 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 400ms ease,
+    border-color 400ms ease,
+    backdrop-filter 400ms ease;
+
+  &.is-scrolled {
+    height: 4.75rem;
+    background: var(--nav-scroll-tint);
+    border-bottom-color: var(--nav-divider);
+    backdrop-filter: blur(14px) saturate(120%);
+  }
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.4vw, 1.5rem);
+  width: 100%;
+  min-width: 0;
+}
+
+.brand {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 3.25rem;
+  text-decoration: none;
+  animation: brand-enter 620ms cubic-bezier(0.22, 1, 0.36, 1) 40ms both;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus-visible {
+    border-radius: 0.5rem;
+    outline: 2px solid var(--copper-accent);
+    outline-offset: 6px;
+  }
+}
+
+.brand-logo {
+  width: auto;
+  height: 3rem;
+  max-width: 7rem;
+  object-fit: contain;
+}
+
+.desktop-navigation {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.header-actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 0.9vw, 0.85rem);
+}
+
+.theme-toggle,
+.menu-toggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.85rem;
+  background: var(--nav-toggle-background);
+  color: var(--nav-toggle-text);
+  cursor: pointer;
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease,
+    background-color 300ms ease;
+
+  &:hover {
+    transform: scale(1.06);
+    box-shadow: 0 8px 20px -8px var(--nav-cta-shadow);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--copper-accent);
+    outline-offset: 3px;
+  }
+}
+
+.theme-toggle {
+  --theme-icon-glow: #f8c9a5;
+
+  overflow: hidden;
+  box-shadow: 0 6px 18px -8px rgba(195, 106, 61, 0.55);
+  animation: theme-enter 520ms ease 320ms both;
+}
+
+:host-context([data-theme='dark']) .theme-toggle {
+  --theme-icon-glow: #c36a3d;
+}
+
+.theme-icon {
+  --theme-rotation: -45deg;
+
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: rotate(var(--theme-rotation)) scale(0.65);
+  transition:
+    opacity 320ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    color: var(--theme-icon-glow);
+    filter: drop-shadow(0 0 5px rgba(195, 106, 61, 0.85))
+      drop-shadow(0 0 12px rgba(195, 106, 61, 0.45));
+  }
+
+  &.is-visible {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  &.moon-icon {
+    --theme-rotation: 45deg;
+  }
+}
+
+.menu-toggle {
+  display: none;
+
+  svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+@keyframes brand-enter {
+  from {
+    opacity: 0;
+    translate: -18px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes theme-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1439px) {
+  .site-header {
+    padding-inline: clamp(1rem, 2.2vw, 2rem);
+  }
+
+  .header-inner {
+    gap: 0.75rem;
+  }
+
+  .cv-button,
+  .cta-button {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.76rem;
+  }
+}
+
+/* Below ~1280px the brand, eight links and three controls no longer fit on one row. */
+@media (max-width: 1279px) {
+  .desktop-navigation,
+  .header-actions > .cv-button,
+  .header-actions > .cta-button {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: grid;
+  }
+}
+
+@media (max-width: 599px) {
+  .site-header {
+    height: 4.75rem;
+    padding-inline: 1rem;
+  }
+
+  .brand,
+  .brand-logo {
+    height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

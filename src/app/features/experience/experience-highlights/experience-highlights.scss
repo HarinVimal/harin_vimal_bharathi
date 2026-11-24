@@ -1,0 +1,100 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.experience-highlights {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-width: 0;
+  padding: 1.3rem 1.35rem 1.35rem;
+  border: 1px solid rgba(195, 106, 61, 0.24);
+  border-radius: 20px;
+  background: linear-gradient(155deg, rgba(248, 242, 234, 0.88), rgba(233, 209, 187, 0.5));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 20px 44px -32px rgba(102, 59, 45, 0.62);
+  backdrop-filter: blur(12px);
+  transition:
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    transform 300ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(195, 106, 61, 0.55);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 26px 54px -30px rgba(195, 106, 61, 0.62);
+
+    .experience-highlights__glow {
+      opacity: 0.7;
+    }
+  }
+}
+
+.experience-highlights__glow {
+  position: absolute;
+  top: -6rem;
+  right: -5rem;
+  z-index: -1;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(195, 106, 61, 0.3), transparent 68%);
+  filter: blur(14px);
+  opacity: 0.4;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.experience-highlights__title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #c36a3d;
+  font-family: 'JetBrains Mono', var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+}
+
+.experience-highlights__list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-highlights__item {
+  min-width: 0;
+}
+
+:host-context([data-theme='dark']) {
+  .experience-highlights {
+    border-color: rgba(233, 209, 187, 0.22);
+    background: linear-gradient(155deg, rgba(58, 33, 26, 0.86), rgba(102, 59, 45, 0.42));
+  }
+
+  .experience-highlights__title {
+    color: #e9d1bb;
+  }
+}
+
+@media (max-width: 1279px) {
+  .experience-highlights {
+    padding: 1.15rem 1.2rem 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-highlights,
+  .experience-highlights__glow {
+    transition: none;
+  }
+
+  .experience-highlights:hover {
+    transform: none;
+  }
+}

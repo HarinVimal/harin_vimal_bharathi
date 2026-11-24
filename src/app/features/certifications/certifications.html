@@ -1,0 +1,137 @@
+<section
+  #certificationsRoot
+  id="certifications"
+  class="certifications relative isolate overflow-hidden py-20 sm:py-24 lg:py-28"
+  aria-labelledby="certifications-title"
+>
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <span class="certifications__ambient"></span>
+
+    <svg
+      class="certifications__fabric"
+      viewBox="0 0 900 520"
+      fill="none"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0 0H520C430 92 338 104 252 164 150 236 92 316 0 342Z"
+        fill="#FFFBF5"
+        fill-opacity="0.42"
+      />
+      <path
+        d="M-20 470C160 330 288 386 428 302 566 218 704 240 920 92V540H-20Z"
+        fill="#E9D1BB"
+        fill-opacity="0.18"
+      />
+      <path
+        d="M-20 506C164 370 294 422 432 338 572 254 712 276 920 130"
+        stroke="#C36A3D"
+        stroke-opacity="0.09"
+        stroke-width="1.6"
+      />
+    </svg>
+
+    <svg class="certifications__ornament" viewBox="0 0 460 160" fill="none">
+      <path
+        d="M4 128C78 38 196 16 448 78"
+        stroke="#C36A3D"
+        stroke-opacity="0.24"
+        stroke-width="1.4"
+        stroke-linecap="round"
+      />
+      <circle cx="4" cy="128" r="3" fill="#C36A3D" fill-opacity="0.4" />
+    </svg>
+
+    <svg
+      class="certifications__botanical certifications__botanical--left"
+      viewBox="0 0 240 300"
+      fill="none"
+    >
+      <g stroke="#C36A3D" stroke-opacity="0.18" stroke-width="1.3" stroke-linecap="round">
+        <path d="M-10 290C30 226 64 162 86 92 98 56 104 28 108 4" />
+      </g>
+      <g fill="#88A86D" fill-opacity="0.14">
+        <path d="M74 132C34 110 12 116 -6 142 30 158 58 156 74 132Z" />
+        <path d="M88 88C54 62 30 66 10 90 44 108 70 108 88 88Z" />
+        <path d="M100 44C76 18 52 18 32 38 60 56 84 58 100 44Z" />
+      </g>
+    </svg>
+
+    <svg
+      class="certifications__botanical certifications__botanical--right"
+      viewBox="0 0 240 300"
+      fill="none"
+    >
+      <g stroke="#C36A3D" stroke-opacity="0.16" stroke-width="1.3" stroke-linecap="round">
+        <path d="M250 300C210 236 176 172 154 102 142 66 136 38 132 4" />
+      </g>
+      <g fill="#88A86D" fill-opacity="0.12">
+        <path d="M166 142C206 120 228 126 246 152 210 168 182 166 166 142Z" />
+        <path d="M152 98C186 72 210 76 230 100 196 118 170 118 152 98Z" />
+        <path d="M140 54C164 28 188 28 208 48 180 66 156 68 140 54Z" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="relative mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+    <header class="certifications__header max-w-3xl">
+      <p class="certifications__eyebrow flex flex-wrap items-center gap-3">
+        <span class="certifications__eyebrow-icon" aria-hidden="true">
+          <lucide-icon [img]="sparkleIcon" [size]="12" [strokeWidth]="2" />
+        </span>
+        <span>CERTIFICATIONS &amp; ACHIEVEMENTS</span>
+        <span class="certifications__eyebrow-line" aria-hidden="true"></span>
+      </p>
+
+      <h2
+        id="certifications-title"
+        class="certifications__heading mt-5 text-[clamp(2rem,4vw,3.35rem)] leading-[1.14] tracking-[-0.025em]"
+      >
+        Credentials That Speak for <span class="text-copper-accent">Themselves</span>
+      </h2>
+
+      <p
+        class="certifications__intro mt-5 max-w-[42rem] text-[0.95rem] leading-[1.8] sm:text-[1rem]"
+      >
+        Continuous learning is at the heart of my journey. Explore the certifications, courses, and
+        achievements that reflect my commitment to growing as a software engineer.
+      </p>
+    </header>
+
+    <div class="mt-10">
+      <app-certification-filters
+        [filters]="filters()"
+        [activeFilter]="activeFilter()"
+        (activeFilterChange)="onFilterChange($event)"
+      />
+    </div>
+
+    <div class="certifications__gallery mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      @for (certification of visibleCertifications(); track certification.id) {
+        <app-certification-card [certification]="certification" (view)="openPreview($event)" />
+      }
+    </div>
+
+    <p class="sr-only" aria-live="polite">
+      Showing {{ visibleCertifications().length }} of
+      {{ filteredCertifications().length }} certifications in {{ activeFilterLabel() }}.
+    </p>
+
+    @if (hasMore()) {
+      <div class="mt-9 flex justify-center">
+        <button type="button" class="certifications__show-more" (click)="toggleShowAll()">
+          {{ showAll() ? 'Show Less' : 'View All Certifications' }}
+          <lucide-icon
+            [img]="showAll() ? chevronUpIcon : chevronDownIcon"
+            [size]="14"
+            [strokeWidth]="2"
+          />
+        </button>
+      </div>
+    }
+  </div>
+</section>
+
+@if (selectedCertification(); as selected) {
+  <app-certificate-preview-modal [certification]="selected" (closed)="closePreview()" />
+}

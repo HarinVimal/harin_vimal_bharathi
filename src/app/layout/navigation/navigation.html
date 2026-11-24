@@ -1,0 +1,20 @@
+<nav
+  class="site-navigation"
+  [attr.aria-label]="variant() === 'mobile' ? 'Mobile navigation' : 'Primary navigation'"
+>
+  <ul class="navigation-list" role="list">
+    @for (item of navigationItems; track item.sectionId; let index = $index) {
+      <li class="navigation-item" [style.--enter-delay]="entranceDelay(index)">
+        <a
+          class="navigation-link"
+          [class.is-active]="activeSectionId() === item.sectionId"
+          [attr.aria-current]="activeSectionId() === item.sectionId ? 'location' : null"
+          [href]="'#' + item.sectionId"
+          (click)="onLinkClick($event, item)"
+        >
+          <span class="navigation-label">{{ item.label }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+</nav>

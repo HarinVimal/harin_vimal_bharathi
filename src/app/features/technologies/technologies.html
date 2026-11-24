@@ -1,0 +1,43 @@
+<section
+  #techRoot
+  id="technologies"
+  class="technologies relative isolate overflow-hidden py-20 sm:py-24"
+  aria-labelledby="technologies-title"
+>
+  <span class="technologies__ambient" aria-hidden="true"></span>
+
+  <div class="relative mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
+      <div class="min-w-0">
+        <p class="tech-eyebrow flex items-center gap-3">
+          <span class="tech-eyebrow-line" aria-hidden="true"></span>
+          <span>TECHNOLOGY STACK</span>
+        </p>
+        <h2
+          id="technologies-title"
+          class="tech-heading mt-4 text-[clamp(1.9rem,3.4vw,3rem)] leading-[1.15] tracking-[-0.02em]"
+        >
+          Tools &amp; Technologies I Work With
+        </h2>
+      </div>
+
+      <app-technology-filters
+        class="shrink-0"
+        [activeCategory]="activeCategory()"
+        (activeCategoryChange)="onCategoryChange($event)"
+      />
+    </div>
+
+    <div
+      class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8"
+    >
+      @for (technology of visibleTechnologies(); track technology.name) {
+        <app-technology-card [technology]="technology" />
+      }
+    </div>
+
+    <p class="sr-only" aria-live="polite">
+      Showing {{ visibleTechnologies().length }} technologies in {{ activeCategoryLabel() }}.
+    </p>
+  </div>
+</section>
