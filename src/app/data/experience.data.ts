@@ -38,7 +38,7 @@ export const EXPERIENCE_DATA: readonly ExperienceEntry[] = [
     id: 'rnd-softech',
     companyName: 'RND Softech Pvt. Ltd.',
     jobTitle: 'Software Developer L2',
-    startDate: 'Jul 2022',
+    startDate: 'May 2022',
     endDate: 'Mar 2025',
     isCurrent: false,
     description:
